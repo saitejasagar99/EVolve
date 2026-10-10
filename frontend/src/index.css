@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-cream text-ink-800 font-sans;
+  }
+  /* Tabular figures everywhere a number is compared to another number. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white border border-ink-200/70 rounded-xl shadow-card;
+  }
+  .card-pad {
+    @apply p-5;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm
+           font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed
+           border border-ink-200 bg-white text-ink-700 hover:bg-ink-50
+           hover:border-ink-300 active:bg-ink-100 whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply bg-brand-600 border-brand-600 text-white hover:bg-brand-700
+           hover:border-brand-700 active:bg-brand-800;
+  }
+  .btn-ghost {
+    @apply border-transparent bg-transparent hover:bg-ink-100;
+  }
+  .btn-sm {
+    @apply px-2.5 py-1 text-xs;
+  }
+  .label {
+    @apply block text-[11px] font-semibold uppercase tracking-wide text-ink-500 mb-1.5;
+  }
+  .input {
+    @apply w-full rounded-lg border border-ink-200 bg-white px-3 py-2 text-sm
+           text-ink-800 placeholder:text-ink-400
+           focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full border px-2 py-0.5
+           text-[11px] font-semibold;
+  }
+  .table-base {
+    @apply w-full text-sm border-collapse;
+  }
+  .table-base th {
+    @apply text-left text-[11px] font-semibold uppercase tracking-wide
+           text-ink-500 px-3 py-2.5 border-b border-ink-200 whitespace-nowrap;
+  }
+  .table-base td {
+    @apply px-3 py-2.5 border-b border-ink-100 align-middle;
+  }
+  .table-base tbody tr:hover {
+    @apply bg-brand-50/40;
+  }
+  .kpi-value {
+    @apply text-[26px] leading-tight font-bold tnum text-ink-900;
+  }
+  .link {
+    @apply text-brand-700 underline underline-offset-2 hover:text-brand-800;
+  }
+  /* Notice blocks. `warn` is used for synthetic-data labelling. */
+  .notice {
+    @apply rounded-lg border px-3.5 py-2.5 text-[13px] leading-relaxed;
+  }
+  .notice-warn {
+    @apply border-amber-300 bg-amber-50 text-amber-900;
+  }
+  .notice-info {
+    @apply border-sky-300 bg-sky-50 text-sky-900;
+  }
+  .notice-good {
+    @apply border-brand-300 bg-brand-50 text-brand-900;
+  }
+  .notice-danger {
+    @apply border-rose-300 bg-rose-50 text-rose-900;
+  }
+
+  /* Interactive Polish & Judge-Ready Micro-interactions */
+  .card-interactive {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lift hover:border-brand-300;
+  }
+
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-md border border-white/80 shadow-card;
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 24px rgba(16, 185, 129, 0.22);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 24px rgba(6, 182, 212, 0.22);
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 24px rgba(245, 158, 11, 0.22);
+  }
+
+  .live-dot {
+    position: relative;
+    display: inline-flex;
+    height: 8px;
+    width: 8px;
+    border-radius: 9999px;
+  }
+  .live-dot::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 9999px;
+    background-color: currentColor;
+    opacity: 0.45;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  /* Futuristic Dark Glassmorphism */
+  .glass-panel {
+    background: rgba(12, 19, 38, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-panel-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-panel-hover:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+    box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.22);
+    transform: translateY(-2px);
+  }
+
+  .bg-cyber-grid {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .bg-cyber-radial {
+    background: radial-gradient(circle at 50% 15%, rgba(6, 182, 212, 0.14) 0%, rgba(16, 185, 129, 0.06) 40%, transparent 75%);
+  }
+}
+
+@layer utilities {
+  .scroll-thin::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+  .scroll-thin::-webkit-scrollbar-thumb {
+    @apply bg-ink-300 rounded-full;
+  }
+  .scroll-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+}
