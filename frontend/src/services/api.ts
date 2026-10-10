@@ -139,7 +139,7 @@ export type {
 }
 
 
-const BASE = ''
+const BASE = (((import.meta as any).env?.VITE_API_URL as string | undefined) || '').replace(/\/+$/, '')
 
 let authToken: string | null = typeof window !== 'undefined' ? localStorage.getItem('evolve_auth_token') : null
 

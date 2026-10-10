@@ -1,0 +1,11 @@
+{
+  "name": "evolve-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "EVolve AI - Intelligent EV Battery Waste Management and Circularity Platform",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd frontend && npm run preview",
+    "dev": "cd frontend && npm run dev"
+  }
+}
